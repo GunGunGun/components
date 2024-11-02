@@ -497,6 +497,7 @@ class ZenViewSplitter extends ZenDOMOperatedFeature {
    */
   resetTabState(tab, forUnsplit) {
     tab.splitView = false;
+    tab.classList.remove('split');
     tab.linkedBrowser.zenModeActive = false;
     const container = tab.linkedBrowser.closest('.browserSidebarContainer');
     this.resetContainerStyle(container);
@@ -786,6 +787,7 @@ class ZenViewSplitter extends ZenDOMOperatedFeature {
   applyGridToTabs(tabs) {
     tabs.forEach((tab, index) => {
       tab.splitView = true;
+      tab.classList.add('split');
       const container = tab.linkedBrowser.closest('.browserSidebarContainer');
       this.styleContainer(container);
     });
